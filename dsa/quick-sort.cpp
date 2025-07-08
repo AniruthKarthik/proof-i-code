@@ -1,12 +1,12 @@
 #include <iostream>
 
-class Quicksorter {
+class Quicksort {
 public:
-    void sort(int arr[], int low, int high) {
+    void quick_sort(int arr[], int low, int high) {
         if (low < high) { 
             int pivot = partition(arr, low, high);
-            sort(arr, low, pivot - 1);  
-            sort(arr, pivot + 1, high); 
+            quick_sort(arr, low, pivot - 1);  
+            quick_sort(arr, pivot + 1, high); 
         }
     }
 
@@ -32,15 +32,24 @@ private:
     }
 };
 
-int main() {
-    int myarr[] = {11, 4, 5, 2, 35, 67, 2, 1, 3};
-    int size = sizeof(myarr) / sizeof(myarr[0]);
-    Quicksorter sorter;
-    sorter.sort(myarr, 0, size - 1);
+void print_array(int arr[],int n ){
+  for(int i=0;i<n;i++){
+    std::cout<<arr[i]<<" ";
+  }
+  std::cout<<"\n";
+};
 
-    for (int i : myarr) {
-        std::cout << i << " ";
-    }
+
+
+int main() {
+    int arr[] = {11, 4, 5, 2, 35, 67, 2, 1, 3};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    std::cout<<"the og array \n";
+    print_array(arr, size);
+    Quicksort sorter;
+    sorter.quick_sort(arr, 0, size - 1);
+    std::cout<<"the array after quick_sort \n";
+    print_array(arr, size);
     return 0;
 }
 
