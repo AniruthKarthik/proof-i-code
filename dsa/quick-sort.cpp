@@ -39,8 +39,6 @@ void print_array(int arr[],int n ){
   std::cout<<"\n";
 };
 
-
-
 int main() {
     int arr[] = {11, 4, 5, 2, 35, 67, 2, 1, 3};
     int size = sizeof(arr) / sizeof(arr[0]);

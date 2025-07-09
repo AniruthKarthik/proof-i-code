@@ -33,7 +33,6 @@ class Solution {
                 heap.add(minNode.next);
             }
         }
-
         return dummy.next;
     }
 }

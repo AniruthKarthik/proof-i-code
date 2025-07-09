@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iterator>
 #include <vector>
 using namespace std ;
 
@@ -11,9 +10,7 @@ class MergeSort{
       int mid=(low+high)/2;
       mergesort(arr, low, mid);
       mergesort(arr, mid+1, high);
-
       merge(arr,low,mid,high );
-
     }
     return;
   }
@@ -35,7 +32,6 @@ class MergeSort{
     temp.push_back(arr[i]);
     i++;
     }
-
     while (j<=right) {
     temp.push_back(arr[j]);
     j++;
@@ -62,6 +58,4 @@ int main(){
   sorter.mergesort(vec,0,vec.size()-1);
   cout<<"the same list after mergesort"<<endl;
   print_vector(vec);
-
-  
 }
