@@ -37,7 +37,6 @@ public:
             return -1;
         }
         return arr[top];
-
     }
 
     bool is_empty(){
