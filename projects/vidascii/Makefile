@@ -12,8 +12,8 @@ try:
 
 # Target for vidascii.cpp (ASCII video converter)
 vidascii:
-	g++ vidascii.cpp -o vidascii `pkg-config --cflags --libs opencv4`
+	g++ main.cpp -o vidascii `pkg-config --cflags --libs opencv4`
 	./vidascii $(FILE)
 
 # Default video file to use if none is passed
-FILE ?= rat.mp4
+FILE ?= sample.mp4

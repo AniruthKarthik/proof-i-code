@@ -1,8 +1,8 @@
 # todo 
 ll palindrome
-ll poly multiplication
+sliding window
 
 # ongoing
 ll remove adjacent pairs
-sliding window
+ll poly multiplication
 
