@@ -1,65 +1,82 @@
 #include <iostream>
-#include <ostream>
 using namespace std;
 
-class Stack{
+class Stack {
 private:
-    int top;
-    int size;
-    int* arr;
+    int* arr;      
+    int top;       
+    int capacity; 
 
 public:
-    Stack(int n){
-        size=n;
-        top=-1;
-        arr=new int[size];
+    Stack(int size) {
+        capacity = size;
+        arr = new int[capacity];
+        top = -1;
     }
 
-    void push(int val){
-        if(top>=size-2){
-            cout<<"stack overflow\n";
+    ~Stack() {
+        delete[] arr;
+    }
+
+    void push(int value) {
+        if (top >= capacity - 1) {
+            cout << "Stack Overflow! Cannot push " << value << "\n";
             return;
         }
-        arr[++top]=val;
+        arr[++top] = value;
     }
 
-    void pop(){
-        if(top<0){
-            cout<<"stack underflow\n";
-            return;
+    int pop() {
+        if (is_empty()) {
+            cout << "Stack Underflow! Cannot pop.\n";
+            return -1;
         }
-        top--;
+        return arr[top--];
     }
 
-    int peek(){
-        if(top<0){
-            cout<<"stack underflow\n";
+    int peek() const {
+        if (is_empty()) {
+            cout << "Stack is empty.\n";
             return -1;
         }
         return arr[top];
     }
 
-    bool is_empty(){
-        return (top<0)?true:false;
+    bool is_empty() const {
+        return top == -1;
     }
 
-    ~Stack(){
-        delete []arr;
+    void print() const {
+        cout << "Stack (Top to Bottom): ";
+        for (int i = top; i >= 0; --i) {
+            cout << arr[i] << " ";
+        }
+        cout << "\n";
     }
 };
 
-int main(){
+int main() {
+    Stack st(5); 
 
-    Stack* stack=new Stack(5);
+    st.push(10);
+    st.push(20);
+    st.push(30);
 
-    stack->push(2);
-    stack->push(3);
-    stack->push(4);
+    cout << "After pushing 10, 20, 30:\n";
+    st.print();
 
-    cout<<"the top element if the stack is "<<stack->peek()<<endl;
+    cout << "Top element is: " << st.peek() << "\n";
 
-    stack->pop();
-    cout<<"the top element after pop is "<<stack->peek()<<endl;
+    cout << "Popped: " << st.pop() << "\n";
+    st.print();
+
+    st.push(40);
+    st.push(50);
+    st.push(60);
+    st.push(70);
+
+    cout << "Final stack:\n";
+    st.print();
 
     return 0;
 }
