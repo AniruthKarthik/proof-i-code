@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 using namespace std;
 struct ListNode {
@@ -8,32 +9,33 @@ struct ListNode {
     ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
-// INCOMPLETE
-
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
         if (head == nullptr || head->next == nullptr) return head;
-        ListNode* temp=head;
-        head=head->next;
-        ListNode* prev=nullptr;
-        while (temp!=nullptr&& temp->next!=nullptr) {
-            ListNode* a=temp;
-            ListNode* b=temp->next;
-            a->next=b->next;
-            b->next=a;
 
-            if(prev!=nullptr){
-                prev->next=b;
-            }
-            prev=a;
-            temp=a->next;
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* prev = dummy;
+
+        while (head != nullptr && head->next != nullptr) {
+            ListNode* a = head;
+            ListNode* b = head->next;
+
+            // Swap
+            prev->next = b;
+            a->next = b->next;
+            b->next = a;
+
+            // Move pointers forward
+            prev = a;
+            head = a->next;
         }
-        return head;
 
-
+        return dummy->next;
     }
 };
+
 
 void print_ll(ListNode* head){
     while (head!=nullptr) {
@@ -41,20 +43,20 @@ void print_ll(ListNode* head){
         head=head->next;
     }
     cout<<"\n"; 
-}
+};
 
 int main(){
     ListNode* head=new ListNode(2);
     head->next=new ListNode(3);
     head->next->next=new ListNode(4);
+    head->next->next->next=new ListNode(5);
 
     print_ll(head);
 
     Solution sol;
-    sol.swapPairs(head);
 
-    print_ll(head);
+    print_ll(sol.swapPairs(head));
 
-}
+};
 
 

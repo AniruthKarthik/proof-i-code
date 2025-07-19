@@ -1,0 +1,68 @@
+[
+    {
+        "filepath": "./photos/Nikon_COOLPIX_P1.jpg",
+        "datetime": "2008:03:07 09:55:46",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "filepath": "./photos/s1.jpg",
+        "datetime": "N/A",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "filepath": "./photos/WhatsApp Image 2025-07-19 at 09.47.58.jpeg",
+        "datetime": "N/A",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "filepath": "./photos/s2.jpg",
+        "datetime": "N/A",
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "photo_id": "sanyo-vpcg250.jpg",
+        "hash": "4723c892d4d3c200074f3a8a437b0d3e62e631e140b68e2386a54c45f0da2566",
+        "date": "1998:01:01 00:00:00",
+        "location": null
+    },
+    {
+        "photo_id": "sanyo-vpcsx550.jpg",
+        "hash": "74401cc6e0b6bdb03b7d3a1c99a0ba3b4dd5b3ac9b7728a38f6fb3607f3360ea",
+        "date": "2000:11:18 21:14:19",
+        "location": null
+    },
+    {
+        "photo_id": "ricoh-rdc5300.jpg",
+        "hash": "16182006e2f82e60f11e0bad3964cac539bba4e58d14a3152bfe5aeb1907ab19",
+        "date": "2000:05:31 21:50:40",
+        "location": null
+    },
+    {
+        "photo_id": "sony-d700.jpg",
+        "hash": "8ff0028190b36a6c4af79989b248dd5e949d289d32c5f0e005be2db45d363c98",
+        "date": "1998:12:01 14:22:36",
+        "location": null
+    },
+    {
+        "photo_id": "canon-ixus.jpg",
+        "hash": "b2d085bdb261cb2c56d8ba10d79175e38c0acd0d429afe19a4610eddee3b06fe",
+        "date": "2001:06:09 15:17:32",
+        "location": null
+    },
+    {
+        "photo_id": "sony-powershota5.jpg",
+        "hash": "608c6c0a57205c42ca4169b5574823ed1c05e4e636a038cda64b6ef18ae5d274",
+        "date": null,
+        "location": null
+    },
+    {
+        "photo_id": "nikon-e950.jpg",
+        "hash": "7920518dec63a63074ca8e1861b61f69be687b3dd0caa3eb65cdaac4c4f43fd0",
+        "date": "2001:04:06 11:51:40",
+        "location": null
+    }
+]
