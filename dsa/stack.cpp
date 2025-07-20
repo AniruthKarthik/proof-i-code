@@ -3,9 +3,9 @@ using namespace std;
 
 class Stack {
 private:
-    int* arr;      
-    int top;       
-    int capacity; 
+    int* arr;    
+    int top;     
+    int capacity;
 
 public:
     Stack(int size) {
@@ -19,7 +19,7 @@ public:
     }
 
     void push(int value) {
-        if (top >= capacity - 1) {
+        if (is_full()) {
             cout << "Stack Overflow! Cannot push " << value << "\n";
             return;
         }
@@ -46,7 +46,15 @@ public:
         return top == -1;
     }
 
+    bool is_full() const {
+        return top == capacity - 1;
+    }
+
     void print() const {
+        if (is_empty()) {
+            cout << "Stack is empty.\n";
+            return;
+        }
         cout << "Stack (Top to Bottom): ";
         for (int i = top; i >= 0; --i) {
             cout << arr[i] << " ";
@@ -56,7 +64,7 @@ public:
 };
 
 int main() {
-    Stack st(5); 
+    Stack st(5);
 
     st.push(10);
     st.push(20);

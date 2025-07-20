@@ -16,7 +16,7 @@ private:
     Node* tail;
 
 public:
-    DoublyLinkedList() : head(nullptr), tail(nullptr) {}
+    DoublyLinkedList() : head(nullptr), tail(tail) {}
 
     // Add node at the beginning
     void add_at_first(int value) {
