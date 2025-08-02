@@ -1,5 +1,7 @@
+# check whether the given string is an anagram
+
 def anagram(s: str, t: str) -> bool:
-    if len(s) != len(t):  # fix: compare s and t
+    if len(s) != len(t): 
         return False
 
     count = [0] * 26
