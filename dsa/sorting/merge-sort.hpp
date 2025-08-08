@@ -1,9 +1,30 @@
+#pragma once
 #include <iostream>
 #include <vector>
 using namespace std;
 
 class MergeSort {
   public:
+	// Public function to sort the entire vector
+	static void sort(vector<int> &arr)
+	{
+		if (arr.empty())
+			return;
+		mergesort(arr, 0, arr.size() - 1);
+	}
+
+	// Utility function to print the vector
+	static void print(const vector<int> &vec)
+	{
+		cout << "< ";
+		for (int val : vec)
+		{
+			cout << val << " ";
+		}
+		cout << ">" << endl;
+	}
+
+  private:
 	static void mergesort(vector<int> &arr, int low, int high)
 	{
 		if (low < high)
@@ -13,7 +34,6 @@ class MergeSort {
 			mergesort(arr, mid + 1, high);
 			merge(arr, low, mid, high);
 		}
-		return;
 	}
 
 	static void merge(vector<int> &arr, int left, int mid, int right)
@@ -21,53 +41,32 @@ class MergeSort {
 		vector<int> temp;
 		int i = left;
 		int j = mid + 1;
+
 		while (i <= mid && j <= right)
 		{
 			if (arr[i] <= arr[j])
 			{
-				temp.push_back(arr[i]);
-				i++;
+				temp.push_back(arr[i++]);
 			}
 			else
 			{
-				temp.push_back(arr[j]);
-				j++;
+				temp.push_back(arr[j++]);
 			}
 		}
+
 		while (i <= mid)
 		{
-			temp.push_back(arr[i]);
-			i++;
+			temp.push_back(arr[i++]);
 		}
+
 		while (j <= right)
 		{
-			temp.push_back(arr[j]);
-			j++;
+			temp.push_back(arr[j++]);
 		}
+
 		for (int k = left; k <= right; k++)
 		{
 			arr[k] = temp[k - left];
 		}
 	}
 };
-
-void print_vector(vector<int> &vec)
-{
-	cout << "< ";
-	for (int i : vec)
-	{
-		cout << i << " ";
-	}
-	cout << ">" << endl;
-}
-
-int main()
-{
-	vector<int> vec = {23, 54, 31, 3, 4, 1, 3, 4, 54};
-	cout << "the og list" << endl;
-	print_vector(vec);
-	MergeSort sorter;
-	sorter.mergesort(vec, 0, vec.size() - 1);
-	cout << "the same list after mergesort" << endl;
-	print_vector(vec);
-}
