@@ -154,4 +154,16 @@ class DoublyLinkedList {
 		}
 		cout << "NULL\n";
 	}
+
+	void print()
+	{
+		Node *temp = head;
+		cout << "NULL ";
+		while (temp)
+		{
+			cout << "<-> " << temp->val << " ";
+			temp = temp->next;
+		}
+		cout << "<-> NULL" << endl;
+	}
 };
