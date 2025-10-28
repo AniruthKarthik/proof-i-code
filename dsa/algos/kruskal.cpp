@@ -1,7 +1,5 @@
 #include <algorithm>
 #include <iostream>
-#include <type_traits>
-#include <utility>
 #include <vector>
 using namespace std;
 
@@ -14,28 +12,25 @@ class DisjointSet {
 		parent.resize(n);
 		rank.resize(n, 0);
 		for (int i = 0; i < n; i++)
-		{
 			parent[i] = i;
-		}
 	}
 
 	int findParent(int node)
 	{
 		if (node == parent[node])
-		{
 			return node;
-		}
-		return parent[node] = findParent(parent[node]);
+		return parent[node] = findParent(parent[node]); // path compression
 	}
+
 	void unionByRank(int u, int v)
 	{
 		int pu = findParent(u);
 		int pv = findParent(v);
 		if (pu == pv)
-			return;
+			return; // already in same set
 
 		if (rank[pu] < rank[pv])
-			parent[pv] = pv;
+			parent[pu] = pv;
 		else if (rank[pv] < rank[pu])
 			parent[pv] = pu;
 		else
@@ -45,25 +40,26 @@ class DisjointSet {
 		}
 	}
 };
-class Sol {
-  public:
-	int spanningTree(int v, vector<vector<int>> adj[])
-	{
-		vector<pair<int, pair<int, int>>> edges;
 
-		for (int u = 0; u < v; u++)
+class Solution {
+  public:
+	int spanningTree(int V, vector<pair<int, int>> adj[])
+	{
+		vector<pair<int, pair<int, int>>> edges; // {weight, {u, v}}
+
+		for (int u = 0; u < V; u++)
 		{
 			for (auto it : adj[u])
 			{
-				int v = it[0];
-				int wt = it[1];
+				int v = it.first;
+				int wt = it.second;
 				edges.push_back({wt, {u, v}});
 			}
 		}
 
 		sort(edges.begin(), edges.end());
 
-		DisjointSet ds(v);
+		DisjointSet ds(V);
 		int sum = 0;
 
 		for (auto it : edges)
@@ -81,10 +77,11 @@ class Sol {
 		return sum;
 	}
 };
+
 int main()
 {
 	int V = 5;
-	vector<vector<int>> adj[V];
+	vector<pair<int, int>> adj[V]; // index - src {dest, weight}
 
 	adj[0].push_back({1, 2});
 	adj[0].push_back({3, 6});
@@ -99,7 +96,7 @@ int main()
 	adj[4].push_back({1, 5});
 	adj[4].push_back({2, 7});
 
-	Sol obj;
+	Solution obj;
 	cout << "Total weight of MST (Kruskal) = " << obj.spanningTree(V, adj)
 	     << endl;
 

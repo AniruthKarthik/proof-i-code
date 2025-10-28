@@ -4,52 +4,42 @@
 using namespace std;
 
 bool dfs(int node, vector<int> adj[], vector<bool> &visited,
-         vector<bool> &recStack, stack<int> &st)
+         vector<bool> &pathVisited, stack<int> &st)
 {
 	visited[node] = true;
-	recStack[node] = true;
+	pathVisited[node] = true;
+	bool hasCycle = false;
 
-	for (int neighbor : adj[node])
+	for (int nei : adj[node])
 	{
-		if (!visited[neighbor])
-		{
-			if (dfs(neighbor, adj, visited, recStack, st))
-				return true;
-		}
-		else if (recStack[neighbor])
-		{
-			return true;
-		}
+		if (!visited[nei])
+			hasCycle = dfs(nei, adj, visited, pathVisited, st);
+		else if (pathVisited[nei])
+			hasCycle = true;
+
+		if (hasCycle)
+			return true; // stop early if found
 	}
 
-	recStack[node] = false;
+	pathVisited[node] = false;
 	st.push(node);
 	return false;
 }
 
-bool topologicalSort(int V, vector<int> adj[], vector<int> &topoOrder)
+bool topologicalSort(int V, vector<int> adj[], vector<int> &topo)
 {
-	vector<bool> visited(V, false);
-	vector<bool> recStack(V, false);
+	vector<bool> visited(V, false), pathVisited(V, false);
 	stack<int> st;
 
 	for (int i = 0; i < V; i++)
-	{
-		if (!visited[i])
-		{
-			if (dfs(i, adj, visited, recStack, st))
-			{
-				return false;
-			}
-		}
-	}
+		if (!visited[i] && dfs(i, adj, visited, pathVisited, st))
+			return false;
 
 	while (!st.empty())
 	{
-		topoOrder.push_back(st.top());
+		topo.push_back(st.top());
 		st.pop();
 	}
-
 	return true;
 }
 
@@ -66,17 +56,17 @@ int main()
 	adj[3].push_back(1);
 
 	vector<int> topo;
+
 	if (topologicalSort(V, adj, topo))
 	{
 		cout << "Topological Order: ";
-		for (int node : topo)
-			cout << node << " ";
+		for (int x : topo)
+			cout << x << " ";
 		cout << endl;
 	}
 	else
 	{
 		cout << "Graph has a cycle! Topological sort not possible." << endl;
 	}
-
 	return 0;
 }
