@@ -75,6 +75,41 @@ class PriorityQueue {
 		return root;
 	}
 
+	void deleteNode(int i)
+	{
+		if (i < 0 || i >= heap.size())
+		{
+			throw runtime_error("Index out of bounds!");
+		}
+		heap[i] = heap.back();
+		heap.pop_back();
+		if (i < heap.size())
+		{
+			if (i > 0 && compare(heap[i], heap[parent(i)]))
+				heapifyUp(i);
+			else
+				heapifyDown(i);
+		}
+	}
+
+	void updateNode(int i, int newValue)
+	{
+		if (i < 0 || i >= heap.size())
+		{
+			throw runtime_error("Index out of bounds!");
+		}
+		int oldValue = heap[i];
+		heap[i] = newValue;
+		if (compare(newValue, oldValue))
+		{
+			heapifyUp(i);
+		}
+		else
+		{
+			heapifyDown(i);
+		}
+	}
+
 	bool isEmpty() { return heap.empty(); }
 
 	int size() { return heap.size(); }
