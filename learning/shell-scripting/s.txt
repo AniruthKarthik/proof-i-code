@@ -1,0 +1,7 @@
+ID Name    Department  Marks
+1  Alice   CS          85
+2  Bob     EE          72
+3  Carol   CS          91
+4  David   ME          64
+5  Eva     CS          88
+
