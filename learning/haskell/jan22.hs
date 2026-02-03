@@ -88,3 +88,28 @@ removeabc (x:xs)=x:removeabc xs
 
 abcremove []=[]
 abcremove (x:xs)= removeabc x : abcremove xs
+
+stern :: Int -> [Int]
+stern n = map a [0..n-1]
+  where
+    a 0 = 0
+    a 1 = 1
+    a k
+      | even k    = a (k `div` 2)
+      | otherwise = a (k `div` 2) + a (k `div` 2 + 1)
+
+digitSum :: Int -> Int
+digitSum x = sum [read [d] | d <- show x]
+
+numbersWithDigitSum :: Int -> Int -> Int -> [Int]
+numbersWithDigitSum start end target =
+  [x | x <- [start..end], digitSum x == target]
+
+
+isPerfect :: Int -> Bool
+isPerfect n =
+  n > 0 && sum [d | d <- [1..n-1], n `mod` d == 0] == n
+
+perfectInRange :: Int -> Int -> [Int]
+perfectInRange a b = [x | x <- [a..b], isPerfect x]
+
