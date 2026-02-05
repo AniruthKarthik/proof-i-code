@@ -16,18 +16,18 @@ first-menu:
 	@echo "Cleaning old build..."
 	@rm -f first-menu
 	@echo "Compiling first-menu.c ..."
-	@gcc -Wall -g first-menu.c -o first-menu
+	@gcc -std=gnu89 -fcommon -Wall -g first-menu.c -o first-menu
 	@echo "Running first-menu ..."
 	@./first-menu
 
 begin:
 	@rm -f begin
-	@gcc -Wall -g begin.c -o begin
+	@gcc -std=gnu89 -fcommon -Wall -g begin.c -o begin
 	@./begin
 
 pattern:
 	@rm -f pattern
-	@gcc -Wall -g pattern.c -o pattern
+	@gcc -std=gnu89 -fcommon -Wall -g pattern.c -o pattern
 	@./pattern
 
 # Universal target - works for any language (force rebuild every time)
@@ -42,7 +42,7 @@ pattern:
 		echo "Cleaning old build for $@..."; \
 		rm -f $@; \
 		echo "Compiling $@.c ..."; \
-		gcc -Wall -g $@.c -o $@; \
+		gcc -std=gnu89 -fcommon -Wall -g $@.c -o $@; \
 		echo "Running $@ ..."; \
 		./$@; \
 	elif [ -f "$@.cpp" ] || [ -f "$@.cc" ] || [ -f "$@.cxx" ]; then \
