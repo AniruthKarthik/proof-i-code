@@ -92,7 +92,44 @@ employees =
   , Employee "Carol" 25 40000
   ]
 
--- menu
+--menu 
+import Data.List (sortBy)
+type Name = String
+type Age = Int
+type Salary = Double
+
+data Employee = Employee Name Age Salary
+  deriving (Show)
+
+mapEmployee :: (Name -> Name)
+            -> (Age -> Age)
+            -> (Salary -> Salary)
+            -> Employee
+            -> Employee
+mapEmployee fn fa fs (Employee n a s) =
+  Employee (fn n) (fa a) (fs s)
+
+nextYear :: [Employee] -> [Employee]
+nextYear =
+  map (mapEmployee id (+1) (*1.2))
+
+lowSalary :: [Employee] -> [(Name, Salary)]
+lowSalary =
+  map (\(Employee n _ s) -> (n, s))
+  . filter (\(Employee _ _ s) -> s < 60000)
+
+sortedNamesBySalary :: [Employee] -> [Name]
+sortedNamesBySalary =
+  map (\(Employee n _ _) -> n)
+  . sortBy (\(Employee _ _ s1) (Employee _ _ s2) -> compare s2 s1)
+
+employees :: [Employee]
+employees =
+  [ Employee "Alice" 30 50000
+  , Employee "Bob"   45 75000
+  , Employee "Carol" 25 40000
+  ]
+
 menu :: IO ()
 menu = do
   putStrLn "1. Show employees"
@@ -101,14 +138,14 @@ menu = do
   putStrLn "4. Names sorted by salary (desc)"
   putStrLn "5. Exit"
   putStrLn "Enter choice:"
-  c <- getLine
-  case c of
-    "1" -> print employees >> menu
-    "2" -> print (nextYear employees) >> menu
-    "3" -> print (lowSalary employees) >> menu
-    "4" -> print (sortedNamesBySalary employees) >> menu
-    "5" -> return ()
-    _   -> putStrLn "Invalid choice" >> menu
+  choice <- readLn :: IO Int     -- Int input
+  case choice of
+    1 -> print employees >> menu
+    2 -> print (nextYear employees) >> menu
+    3 -> print (lowSalary employees) >> menu
+    4 -> print (sortedNamesBySalary employees) >> menu
+    5 -> return ()
+    _ -> putStrLn "Invalid choice" >> menu
 
 main :: IO ()
 main = menu
