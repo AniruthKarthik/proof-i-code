@@ -1,0 +1,187 @@
+%-------------------------
+% Resume in LaTeX
+% Author: Aniruth Karthik
+% Updated: June 2026
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\footskip}{4.08003pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{\small #2} \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-9pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Aniruth Karthik} \\ \vspace{6pt}
+    \small
+    \faPhone\ +91 9952546399 \( | \)
+    \href{mailto:aniruthkarthik10@gmail.com}{\faEnvelope\ \underline{aniruthkarthik10@gmail.com}} \( | \)
+    \href{https://linkedin.com/in/aniruthkarthik}{\faLinkedin\ \underline{linkedin.com/in/aniruthkarthik}} \( | \)
+    \href{https://github.com/AniruthKarthik}{\faGithub\ \underline{github.com/AniruthKarthik}}
+    \vspace{-8pt}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Amrita Vishwa Vidyapeetham}{Coimbatore, Tamil Nadu}
+      {Bachelor of Technology in Computer Science -- CGPA: 8.68}{\textit{Expected July 2028}}
+      \resumeItemListStart
+        \resumeItem{Coursework: Data Structures \& Algorithms, Operating Systems, OOP, Computer Organization \& Architecture, Discrete Mathematics, Linear Algebra; Cisco CCNA Curriculum (TCP/IP, Routing, Switching, \& Enterprise Networking)}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Developer Intern}{Remote}
+      {GIEOM Business Solutions Pvt.\ Ltd}{Apr 2026 -- May 2026}
+      \resumeItemListStart
+        \resumeItem{Built backend data processing pipelines to ingest, transform, validate, and convert workflow data across JSON, XML, XLSX, and CSV formats, ensuring schema interoperability between heterogeneous business systems}
+        \resumeItem{Integrated speech-to-text and text-to-speech services via backend REST APIs; extended BPMN diagramming tooling to support embedded text and image content within the enterprise modeling environment}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Project Member}{Jan 2025 -- Present}
+      {Amrita Vishwa Vidyapeetham -- Knowledge Engineering \& Semantic Computing TAG}{Coimbatore, Tamil Nadu}
+      \resumeItemListStart
+        \resumeItem{Applying static binary analysis and structural feature extraction to clipboard-targeting malware samples, contributing to threat detection research aimed at reducing false-negative rates in malware identification pipelines}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Selected Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{LLM Orchestrator} \( | \) \emph{Go, TypeScript, PostgreSQL, WebSockets, Docker} \( | \) \href{https://github.com/AniruthKarthik/llm-orchestrator}{\underline{github.com/AniruthKarthik/llm-orchestrator}}}{}
+      \resumeItemListStart
+        \resumeItem{Architected a Go DAG execution engine using topological sort to parallelize multi-agent AI workflows across concurrent stages, with automatic retries, panic recovery, and stage-level checkpointing}
+        \resumeItem{Designed a layered AI infrastructure system with token-aware context management; integrated pluggable LLM providers (OpenAI, Anthropic, Groq, Gemini) via a unified API; streamed real-time execution state via WebSockets with event-driven architecture to a React workflow builder}
+      \resumeItemListEnd
+      \vspace{-15pt}
+
+    \resumeProjectHeading
+      {\textbf{StockSim} \( | \) \emph{Python, FastAPI, PostgreSQL, Next.js, Docker} \( | \) \href{https://github.com/AniruthKarthik/stocksim}{\underline{github.com/AniruthKarthik/stocksim}}}{}
+      \resumeItemListStart
+        \resumeItem{Built a full-stack trading simulator with a FastAPI backend; designed a normalized PostgreSQL schema for portfolio state, multi-asset price history, and transaction ledgers; deployed via Docker Compose on Neon serverless PostgreSQL}
+        \resumeItem{Engineered historical data ingestion pipelines to validate and seed multi-asset market datasets; exposed a REST API consumed by a Next.js frontend for portfolio analytics and strategy replay}
+      \resumeItemListEnd
+      \vspace{-15pt}
+
+    \resumeProjectHeading
+      {\textbf{qrtunnel} \( | \) \emph{Python, SSH, TCP/IP, Networking} \( | \) \href{https://github.com/AniruthKarthik/qrtunnel}{\underline{github.com/AniruthKarthik/qrtunnel}}}{}
+      \resumeItemListStart
+        \resumeItem{Engineered a cross-platform file transfer tool with smart LAN/WAN dual-path routing: establishes a local TCP server and SSH reverse tunnels (localhost.run or Cloudflare) behind NAT, client auto-selects fastest path; published to PyPI across 8 releases with GitHub Actions CI/CD}
+        \resumeItem{Secured local endpoints with randomized 6-digit OTP authentication; built a keyboard-driven TUI for file selection, port management, and mode switching}
+      \resumeItemListEnd
+      \vspace{-15pt}
+
+    \resumeProjectHeading
+      {\textbf{VFI: Video Frame Interpolation Suite} \( | \) \emph{C++, Python, PyTorch, CUDA} \( | \) \href{https://github.com/AniruthKarthik/vfi}{\underline{github.com/AniruthKarthik/vfi}}}{}
+      \resumeItemListStart
+        \resumeItem{Engineered a C++ multi-scale Gaussian pyramid motion estimator with coarse-to-fine SAD block matching and bidirectional motion compensation for arbitrary-FPS interpolation; accelerated via SIMD (AVX2/FMA) and multithreading for 8{\texttimes} speedup; integrated RIFE neural interpolation via PyTorch as a GPU-accelerated alternative}
+      \resumeItemListEnd
+      \vspace{-15pt}
+
+    \resumeProjectHeading
+      {\textbf{Open Source Contributions} \( | \) \emph{Go, TypeScript, PostgreSQL} \( | \) \href{https://github.com/AniruthKarthik}{\underline{github.com/AniruthKarthik}}}{}
+      \resumeItemListStart
+        \resumeItem{\href{https://github.com/excalidraw/excalidraw}{\underline{excalidraw/excalidraw}} (TypeScript/React, 70k\texttt{+} stars): implemented highlighter tool with multiply blend-mode rendering and responsive toolbar slots}
+        \resumeItem{\href{https://github.com/dolthub/doltgresql}{\underline{dolthub/doltgresql}}: patched PL/pgSQL variable substitution and fixed operator error formatting to match PostgreSQL wire protocol; \href{https://github.com/hasmcp/hasmcp-ce}{\underline{hasmcp/hasmcp-ce}}: enforced 32-char minimum JWT secret validation}
+        \resumeItem{\href{https://github.com/gomods/athens}{\underline{gomods/athens}}: added DB param to Redis Sentinel SingleFlight config; \href{https://github.com/voss-labs/vask}{\underline{voss-labs/vask}}: centralized TUI error handling and OSC~8 hyperlink support; \href{https://github.com/purpleidea/mgmt}{\underline{purpleidea/mgmt}}: distributed config management fix}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Go, C++, Python, TypeScript, Java, C, SQL} \\
+     \textbf{Backend \& Systems}{: REST APIs, WebSockets, FastAPI, Microservices, Concurrency, Multithreading, Event-Driven Architecture, Linux, TCP/IP, SSH, Docker} \\
+     \textbf{AI \& Data}{: LLM Applications, AI Infrastructure, Multi-Agent Systems, PyTorch, CUDA, Data Pipelines, SIMD (AVX2/FMA)} \\
+     \textbf{Databases}{: PostgreSQL, SQLite, Redis, Database Design, Repository Pattern} \\
+     \textbf{Security \& Analysis}{: Static Analysis, Binary Analysis, Malware Analysis, Feature Extraction} \\
+     \textbf{Tools}{: Git, CMake, OpenCV, FFmpeg, React, Next.js}
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+%-------------------------------------------
+\end{document}
